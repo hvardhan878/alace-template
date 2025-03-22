@@ -1,5 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
+import httpx
 from typing import List
 from pydantic import BaseModel
 import os
@@ -16,6 +18,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Create HTTP client
+http_client = httpx.AsyncClient(base_url="http://localhost:3000")
+
+# Proxy to Vite dev server
+@app.api_route("/{path:path}", methods=["GET"])
+async def proxy_to_vite(path: str, request: Request):
+    # Don't proxy API routes
+    if path.startswith("data"):
+        return await get_data()
+        
+    url = f"/{path}" if path else "/"
+    response = await http_client.get(url)
+    return StreamingResponse(
+        response.aiter_bytes(),
+        status_code=response.status_code,
+        headers=dict(response.headers)
+    )
 
 # Database setup
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/dbname")
