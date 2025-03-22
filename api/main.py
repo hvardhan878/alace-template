@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 # Create HTTP client
-http_client = httpx.AsyncClient(base_url="http://localhost:3000")
+http_client = httpx.AsyncClient(base_url="http://localhost:8000")
 
 # Proxy to Vite dev server
 @app.api_route("/{path:path}", methods=["GET"])
@@ -89,4 +89,4 @@ async def init_db():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=3000, reload=True)

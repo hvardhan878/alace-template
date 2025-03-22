@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: 3000,
+    port: 8000,
     host: '',
     strictPort: true, // Ensure Vite uses exactly port 3000
   },
