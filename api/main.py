@@ -3,20 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
 
-# Try different import approaches
-try:
-    # When running as a module from project root
-    from api.routers import status, proxy
-except ModuleNotFoundError:
-    # When running directly
-    import sys
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-    from api.routers import status, proxy
-
 # Load environment variables
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(title="Simple FastAPI App", 
+             description="A clean FastAPI application",
+             version="1.0.0")
 
 # Enable CORS
 app.add_middleware(
@@ -27,9 +19,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(status.router, prefix="/api")
-app.include_router(proxy.router)
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to FastAPI application"}
+
+@app.get("/api/health")
+def health_check():
+    return {"status": "healthy"}
 
 if __name__ == "__main__":
     import uvicorn
