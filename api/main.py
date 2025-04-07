@@ -8,6 +8,9 @@ from datetime import datetime
 # Load environment variables
 load_dotenv()
 
+# Server startup timestamp for tracking changes
+SERVER_START_TIME = datetime.now().isoformat()
+
 app = FastAPI(title="Simple FastAPI App", 
              description="A clean FastAPI application",
              version="1.0.0")
@@ -20,6 +23,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/api/version")
 def get_version():
@@ -86,10 +90,14 @@ def auto_refreshing_docs():
     """
     return HTMLResponse(content=html_content)
 
-
 @app.get("/api/health")
 def health_check():
     return {"status": "healthy"}
+
+@app.get("/hello")
+def say_hello():
+    return "Hello, World!"
+
 
 if __name__ == "__main__":
     import uvicorn
