@@ -5,6 +5,13 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  server: {
+    host: "::",
+    port: 3000,
+    allowedHosts: [
+      '.modal.host'  // This will match any subdomain of modal.host
+    ]
+  },
   plugins: [
     react(),
     runtimeErrorOverlay(),
