@@ -3,8 +3,6 @@ import { Header } from '@/components/header';
 import { SystemOverview } from '@/components/system-overview';
 import { DataDisplay } from '@/components/data-display';
 import { UserForm } from '@/components/user-form';
-import { ConnectionDetails } from '@/components/connection-details';
-import { ApiTester } from '@/components/api-tester';
 import { User } from '@shared/schema';
 
 export default function Dashboard() {
@@ -29,9 +27,7 @@ export default function Dashboard() {
           <DataDisplay onEdit={handleEdit} />
           <UserForm editingUser={editingUser} onCancelEdit={handleCancelEdit} />
         </div>
-        
-        <ConnectionDetails />
-        <ApiTester />
+   
       </main>
       
       <footer className="bg-white border-t border-gray-200 py-4">
