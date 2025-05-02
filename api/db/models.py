@@ -1,0 +1,1 @@
+# use this file to establish data strucutres and the table structures within the database
