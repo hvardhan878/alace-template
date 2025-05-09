@@ -1,0 +1,8 @@
+{
+  "watch": ["server/**/*", "client/src/**/*"],
+  "ext": "ts,tsx,js,jsx,json",
+  "ignore": ["node_modules"],
+  "exec": "tsx server/index.ts",
+  "restartable": "rs",
+  "verbose": true
+}
