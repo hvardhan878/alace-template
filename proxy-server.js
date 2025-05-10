@@ -124,11 +124,3 @@ proxy.on('error', (err, req, res) => {
   }
 });
 
-// Handle process termination
-process.on('SIGINT', () => {
-  console.log('Shutting down servers...');
-  if (mainServer) {
-    mainServer.kill();
-  }
-  process.exit();
-});
