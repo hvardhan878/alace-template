@@ -1,0 +1,37 @@
+[2025-05-10T13:52:25.893Z] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+[2025-05-10T13:52:40.242Z] node:internal/modules/run_main:122
+    triggerUncaughtException(
+    ^
+
+[2025-05-10T13:52:40.245Z] Error [TransformError]: Transform failed with 1 error:
+/home/rohit/Desktop/alace-template-vite-express-sql/server/index.ts:58:8: ERROR: Expected ";" but found ":"
+    at failureErrorWithLog (/home/rohit/Desktop/alace-template-vite-express-sql/node_modules/tsx/node_modules/esbuild/lib/main.js:1476:15)
+    at /home/rohit/Desktop/alace-template-vite-express-sql/node_modules/tsx/node_modules/esbuild/lib/main.js:755:50
+    at responseCallbacks.<computed> (/home/rohit/Desktop/alace-template-vite-express-sql/node_modules/tsx/node_modules/esbuild/lib/main.js:622:9)
+    at handleIncomingPacket (/home/rohit/Desktop/alace-template-vite-express-sql/node_modules/tsx/node_modules/esbuild/lib/main.js:677:12)
+    at Socket.readFromStdout (/home/rohit/Desktop/alace-template-vite-express-sql/node_modules/tsx/node_modules/esbuild/lib/main.js:600:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+Node.js v22.15.0
+
+[2025-05-10T13:52:41.870Z] Proxy error: connect ECONNREFUSED 127.0.0.1:4000
+
+[2025-05-10T13:52:41.904Z] Proxy error: connect ECONNREFUSED 127.0.0.1:4000
+
+[2025-05-10T13:52:41.930Z] Proxy error: connect ECONNREFUSED 127.0.0.1:4000
+
+[2025-05-10T13:52:46.929Z] Proxy error: connect ECONNREFUSED 127.0.0.1:4000
+
+[2025-05-10T13:52:51.942Z] Proxy error: connect ECONNREFUSED 127.0.0.1:4000
+
+[2025-05-10T13:52:54.291Z] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+

@@ -1,8 +1,17 @@
 {
   "watch": ["server/**/*", "client/src/**/*"],
   "ext": "ts,tsx,js,jsx,json",
-  "ignore": ["node_modules"],
+  "ignore": ["node_modules", ".git", "dist", "build"],
   "exec": "tsx server/index.ts",
   "restartable": "rs",
-  "verbose": true
+  "verbose": true,
+  "colours": true,
+  "delay": 1000,
+  "crash": false,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "events": {
+    "restart": "echo \"\u001b[36m[$(date -u)]\u001b[0m App restarted due to changes\" && clear"
+  }
 }
