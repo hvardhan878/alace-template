@@ -43,8 +43,8 @@ app.use((req, res, next) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
 
+    console.error(`[Server Error]: ${err.stack || err}`);
     res.status(status).json({ message });
-    throw err;
   });
 
   // importantly only setup vite in development and after
@@ -66,5 +66,23 @@ app.use((req, res, next) => {
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+  });
+
+  // Handle server errors gracefully
+  server.on('error', (err: Error & { code?: string }) => {
+    if (err.code === 'EADDRINUSE') {
+      log(`Port ${port} is already in use. Attempting to recover...`);
+      // Wait a bit and try to restart
+      setTimeout(() => {
+        server.close();
+        server.listen({
+          port,
+          host: "0.0.0.0",
+          reusePort: true,
+        });
+      }, 1000);
+    } else {
+      log(`Server error: ${err.message}`);
+    }
   });
 })();

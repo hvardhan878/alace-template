@@ -22,8 +22,15 @@ export const initErrorLog = () => {
 // Log an error to the file
 export const logError = (error) => {
   try {
-    const timestamp = new Date().toISOString();
+    // Skip connection refused errors
     const errorMessage = typeof error === 'string' ? error : error.stack || error.message || JSON.stringify(error);
+    
+    // Don't log connection refused errors
+    if (errorMessage.includes('ECONNREFUSED') || errorMessage.includes('connect ECONNREFUSED')) {
+      return; // Skip logging this error
+    }
+    
+    const timestamp = new Date().toISOString();
     const logEntry = `[${timestamp}] ${errorMessage}\n\n`;
     
     // Append to the log file

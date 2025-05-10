@@ -98,10 +98,30 @@ server.listen(PORT, () => {
   console.log(`Backend errors are available at ${ERROR_API_PATH}`);
 });
 
+// Track last error time to avoid spamming logs
+let lastErrorTime = 0;
+let connectionErrorCount = 0;
+
 // Handle proxy errors
 proxy.on('error', (err, req, res) => {
-  console.error('Proxy error:', err);
-  logError(`Proxy error: ${err.message}`);
+  const now = Date.now();
+  
+  // Only log connection refused errors once every 10 seconds
+  if (err.code === 'ECONNREFUSED') {
+    connectionErrorCount++;
+    
+    // Only log every 10 seconds or every 10th error, whichever comes first
+    if (now - lastErrorTime > 10000 || connectionErrorCount % 10 === 0) {
+      console.error(`Proxy error: ${err.message} (${connectionErrorCount} connection attempts failed)`);
+      logError(`Proxy error: ${err.message}`);
+      lastErrorTime = now;
+    }
+  } else {
+    // Always log non-connection errors
+    console.error('Proxy error:', err);
+    logError(`Proxy error: ${err.message}`);
+    lastErrorTime = now;
+  }
 });
 
 // Handle process termination

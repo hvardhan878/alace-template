@@ -219,7 +219,17 @@
                 .then(data => {
                     const errorContent = document.getElementById('error-content');
                     if (data.errors && data.errors.trim()) {
-                        errorContent.textContent = data.errors;
+                        // Filter out connection refused errors
+                        let filteredErrors = data.errors
+                            .split('\n\n')
+                            .filter(error => !error.includes('ECONNREFUSED') && !error.includes('connect ECONNREFUSED'))
+                            .join('\n\n');
+                        
+                        if (filteredErrors.trim()) {
+                            errorContent.textContent = filteredErrors;
+                        } else {
+                            errorContent.textContent = 'The server is currently starting up. Please wait a moment...';
+                        }
                     } else {
                         errorContent.textContent = 'Analyzing your code for issues...';
                     }

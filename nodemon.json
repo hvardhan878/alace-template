@@ -1,17 +1,21 @@
 {
   "watch": ["server/**/*", "client/src/**/*"],
   "ext": "ts,tsx,js,jsx,json",
-  "ignore": ["node_modules", ".git", "dist", "build"],
+  "ignore": ["node_modules", ".git", "dist", "build", ".vscode"],
   "exec": "tsx server/index.ts",
   "restartable": "rs",
   "verbose": true,
   "colours": true,
   "delay": 1000,
   "crash": false,
+  "exitcrash": false,
+  "noTimeout": true,
+  "pollInterval": 500,
   "env": {
     "NODE_ENV": "development"
   },
   "events": {
-    "restart": "echo \"\u001b[36m[$(date -u)]\u001b[0m App restarted due to changes\" && clear"
+    "restart": "echo \"\u001b[36m[$(date -u)]\u001b[0m App restarted due to changes\" && clear",
+    "crash": "echo \"\u001b[31m[$(date -u)]\u001b[0m App crashed - waiting for changes before restarting\" && sleep 1"
   }
 }
