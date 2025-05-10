@@ -10,7 +10,14 @@ export default defineConfig({
     port: 3000,
     allowedHosts: [
       '.modal.host'  // This will match any subdomain of modal.host
-    ]
+    ],
+    hmr: {
+      timeout: 120000, // 2 minutes
+    },
+    watch: {
+      usePolling: true,
+      interval: 4000
+    }
   },
   plugins: [
     react(),
