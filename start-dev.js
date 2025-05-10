@@ -13,12 +13,6 @@ const proxyServer = spawn('node', [path.join(__dirname, 'proxy-server.js')], {
   shell: true
 });
 
-// Handle process termination
-process.on('SIGINT', () => {
-  console.log('Shutting down servers...');
-  proxyServer.kill();
-  process.exit();
-});
 
 console.log('\n==========================================================');
 console.log('Development environment starting!');
