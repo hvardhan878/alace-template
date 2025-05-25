@@ -8,7 +8,7 @@ export function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
               <Database className="text-primary h-6 w-6 mr-2" />
-              <span className="font-semibold text-xl">Vite + Express + SQLite</span>
+              <span className="font-semibold text-xl">Vite + Expres + SQLite</span>
             </div>
             <div className="hidden md:ml-6 md:flex md:space-x-8">
               <a href="#" className="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">

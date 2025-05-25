@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "node start-dev.js",
+    "build:dev": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "preview": "node start-build-dev.js",
     "dev:server": "nodemon --exec tsx server/index.ts",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "node dist/index.js",
@@ -93,6 +95,7 @@
     "@types/ws": "^8.5.13",
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
+    "chokidar-cli": "^3.0.0",
     "drizzle-kit": "^0.30.4",
     "esbuild": "^0.25.0",
     "nodemon": "^3.1.10",
