@@ -16,7 +16,7 @@ export default defineConfig({
     },
     watch: {
       usePolling: true,
-      interval: 4000
+      interval: 3000
     }
   },
   plugins: [

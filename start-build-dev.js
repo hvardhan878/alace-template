@@ -114,8 +114,8 @@ async function start() {
     
     console.log('\n==========================================================');
     console.log('🎉 Preview server with built app is running!');
-    console.log('🌐 Frontend: http://localhost:4000');
-    console.log('📚 API: http://localhost:4000/api/users');
+    console.log('🌐 Frontend: http://localhost:3000');
+    console.log('📚 API: http://localhost:3000/api/users');
     console.log('⚡ Serving optimized production build');
     console.log('👀 Watching for changes to auto-rebuild...');
     console.log('💡 This is like "vite preview" but for your full-stack app');

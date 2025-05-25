@@ -66,7 +66,7 @@ const server = http.createServer((req, res) => {
   
   // Try to proxy the request to the target server
   proxy.web(req, res, {
-    target: 'http://localhost:4000',
+    target: 'http://localhost:3000',
     // Don't crash on errors
     selfHandleResponse: false
   }, (err) => {
@@ -93,7 +93,7 @@ const server = http.createServer((req, res) => {
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
-  console.log(`Proxying requests to http://localhost:4000`);
+  console.log(`Proxying requests to http://localhost:3000`);
   console.log(`When main server is down, will serve error page from ${errorPagePath}`);
   console.log(`Backend errors are available at ${ERROR_API_PATH}`);
 });

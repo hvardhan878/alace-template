@@ -20,7 +20,7 @@ npm run preview
 - ✅ **Serves built/optimized versions** of both frontend and backend
 - ✅ **Auto-rebuilds** when you change files
 - ✅ **Production-like performance** during development
-- ✅ **API and frontend** served from single port (4000)
+- ✅ **API and frontend** served from single port (3000)
 - ✅ **Built with Vite + esbuild** for maximum optimization
 - 💡 **Similar to `vite preview`** but for full-stack apps
 
@@ -82,7 +82,7 @@ The development workflow has been enhanced to serve **built versions** instead o
    ```
 
 3. **Access the application**
-   - Frontend: http://localhost:4000
-   - API: http://localhost:4000/api/users
+   - Frontend: http://localhost:3000
+   - API: http://localhost:3000/api/users
 
 The application will automatically rebuild when you make changes to any source files! 

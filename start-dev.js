@@ -16,7 +16,7 @@ const proxyServer = spawn('node', [path.join(__dirname, 'proxy-server.js')], {
 
 console.log('\n==========================================================');
 console.log('Development environment starting!');
-console.log('Main server will run on: http://localhost:4000');
+console.log('Main server will run on: http://localhost:3000');
 console.log('Proxy server running on: http://localhost:3000');
 console.log('==========================================================');
 console.log('\nIMPORTANT: Tunnel to port 3000 for error resilience');

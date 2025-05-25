@@ -54,10 +54,10 @@ app.use((req, res, next) => {
   // Serve the built production app
   serveStatic(app);
 
-  // ALWAYS serve the app on port 4000
+  // ALWAYS serve the app on port 3000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 4000;
+  const port = 3000;
   server.listen({
     port,
     host: "0.0.0.0",
