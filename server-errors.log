@@ -1,34 +1,6 @@
-[2025-05-10T15:20:37.388Z] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
-  npx update-browserslist-db@latest
-  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2025-05-25T12:32:38.311Z] Proxy error: read ECONNRESET
 
-[2025-05-10T15:20:47.031Z] 8:50:47 PM [vite] Pre-transform error: /home/rohit/Desktop/alace-template-vite-express-sql/client/src/App.tsx: Unterminated string constant. (3:36)
+[2025-05-25T12:32:38.312Z] Proxy error: read ECONNRESET
 
-  1 | import { Switch, Route } from "wouter";
-  2 | import { queryClient } from "./lib/queryClient";
-> 3 | import { QueryClientProvider } from "@tan
-    |                                     ^
-  4 |   return (
-  5 |     <Switch>
-  6 |       {/* Add pages below */}
-
-[2025-05-10T15:20:47.095Z] Proxy error: read ECONNRESET
-
-[2025-05-10T15:20:47.095Z] Proxy error: read ECONNRESET
-
-[2025-05-10T15:20:47.096Z] Proxy error: read ECONNRESET
-
-[2025-05-10T15:21:19.249Z] 8:51:19 PM [vite] Pre-transform error: /home/rohit/Desktop/alace-template-vite-express-sql/client/src/App.tsx: Unterminated string constant. (3:36)
-
-  1 | import { Switch, Route } from "wouter";
-  2 | import { queryClient } from "./lib/queryClient";
-> 3 | import { QueryClientProvider } from "@tan
-    |                                     ^
-  4 |   return (
-  5 |     <Switch>
-  6 |       {/* Add pages below */}} />
-
-[2025-05-10T15:21:30.331Z] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
-  npx update-browserslist-db@latest
-  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2025-05-25T12:32:38.312Z] Proxy error: read ECONNRESET
 
