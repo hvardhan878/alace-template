@@ -27,20 +27,8 @@ const startMainServer = () => {
   console.log('Starting main server with nodemon...');
   
   const nodemon = spawn('npm', ['run', 'dev:server'], {
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: 'inherit',
     shell: true
-  });
-  
-  // Capture stdout
-  nodemon.stdout.on('data', (data) => {
-    console.log(`[Main Server]: ${data.toString().trim()}`);
-  });
-  
-  // Capture stderr and log errors
-  nodemon.stderr.on('data', (data) => {
-    const errorMsg = data.toString().trim();
-    console.error(`[Main Server Error]: ${errorMsg}`);
-    logError(errorMsg);
   });
   
   nodemon.on('error', (error) => {
@@ -66,7 +54,7 @@ const server = http.createServer((req, res) => {
   
   // Try to proxy the request to the target server
   proxy.web(req, res, {
-    target: 'http://localhost:3000',
+    target: 'http://localhost:3001',
     // Don't crash on errors
     selfHandleResponse: false
   }, (err) => {
@@ -93,7 +81,7 @@ const server = http.createServer((req, res) => {
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
-  console.log(`Proxying requests to http://localhost:3000`);
+  console.log(`Proxying requests to http://localhost:3001`);
   console.log(`When main server is down, will serve error page from ${errorPagePath}`);
   console.log(`Backend errors are available at ${ERROR_API_PATH}`);
 });
